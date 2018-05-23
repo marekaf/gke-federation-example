@@ -8,6 +8,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
+    nodePort: 30080
     targetPort: 80
     name: http
   selector:

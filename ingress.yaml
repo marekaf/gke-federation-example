@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: federated-ingress
+  annotations:
+    kubernetes.io/ingress.class: gce
+spec:
+  rules:
+  - host: federation.marekbartik.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx-nodeport
+          servicePort: 80
