@@ -3,13 +3,9 @@ kind: Ingress
 metadata:
   name: federated-ingress
   annotations:
-    kubernetes.io/ingress.class: gce
+#    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.global-static-ip-name: "k-ingress"
 spec:
-  rules:
-  - host: federation.marekbartik.com
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: nginx-nodeport
-          servicePort: 80
+  backend:
+    serviceName: nginx-nodeport
+    servicePort: 80

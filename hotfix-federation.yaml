@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    federation.alpha.kubernetes.io/federation-name: federation
+  creationTimestamp: null
+  labels:
+    app: federated-cluster
+  name: apiserver
+  selfLink: /api/v1/namespaces/federation-system/services/apiserver
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: https
+    nodePort: 32120
+    port: 443
+    protocol: TCP
+    targetPort: https
+  selector:
+    app: federated-cluster
+    module: federation-apiserver
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}

@@ -57,6 +57,11 @@ kubectl run --context=federation-eu curl-test --image=radial/busyboxplus:curl --
 
 gcloud dns managed-zones describe test-zone
 
+nslookup nginx.default.federation.svc.infra.marekbartik.com
+
+curl http://nginx.default.federation.svc.europe-west1-d.europe-west1.infra.marekbartik.com/
+curl http://nginx.default.federation.svc.southamerica-east1-b.southamerica-east1.infra.marekbartik.com/
+curl http://nginx.default.federation.svc.infra.marekbartik.com/
 #delete clusters
 #i=0
 #for CLUSTER_NAME in "${CLUSTERS[@]}"
