@@ -55,6 +55,8 @@ kubectl apply -f service.yaml -n default --context=federation
 kubectl run --context=federation-br curl-test --image=radial/busyboxplus:curl --rm  -i -- sh -c 'curl nginx'
 kubectl run --context=federation-eu curl-test --image=radial/busyboxplus:curl --rm  -i -- sh -c 'curl nginx'
 
+gcloud dns managed-zones describe test-zone
+
 #delete clusters
 #i=0
 #for CLUSTER_NAME in "${CLUSTERS[@]}"
